@@ -24,6 +24,5 @@ describe('<NumberOfEvents /> component', () => {
         await user.type(numberOfEvents, '{backspace}{backspace}10');
         expect(numberOfEvents).toHaveValue('10');
 
-    })
-
-})
+    });
+});
