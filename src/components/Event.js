@@ -7,7 +7,7 @@ const Event = ({ event }) => {
   return (
     <li>
       <p>{event.summary}</p>
-      <p>{event.start.dateTime}</p>
+      <p>{event.start.dateTime.toLocaleDateString('en-US', {timeZone: 'UTC'})}</p>
       <p>{event.location}</p>
       {showDetails ? (
         <div>
