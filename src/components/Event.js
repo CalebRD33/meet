@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
-  const date = new Date(event.start.dateTime);
+  const date = new Date(event.created);
   const formattedDate = date.toLocaleString('en-US', {timeZone: 'UTC'});
   return (
     <li>
