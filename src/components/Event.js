@@ -4,12 +4,13 @@ import { useState } from "react";
 
 const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
-  const date = new Date(event.created);
-  const formattedDate = date.toLocaleString('en-US', {timeZone: 'UTC'});
+  //const date = new Date(event.start.dateTime);
+  //const formattedDate = date.toLocaleString('en-US', {timeZone: 'UTC'});
+  //const formattedDate = new Date(event.start.dateTime).toUTCString();
   return (
     <li>
       <p>{event.summary}</p>
-      <p>{formattedDate}</p>
+      <p>{event.start.dateTime}</p>
       <p>{event.location}</p>
       {showDetails ? (
         <div>
