@@ -6,19 +6,19 @@ const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
   //const date = new Date(event.start.dateTime);
   //const formattedDate = date.toLocaleString('en-US', {timeZone: 'UTC'});
-  //const formattedDate = new Date(event.start.dateTime).toUTCString();
+  
   return (
-    <li>
-      <p>{event.summary}</p>
-      <p>{event.start.dateTime}</p>
+    <li className="event">
+      <h2>{event.summary}</h2>
       <p>{event.location}</p>
+      <p>{new Date(event.start.dateTime).toUTCString()}</p>
       {showDetails ? (
         <div>
           <p className="details">{event.description}</p>
-          <button onClick={() => setShowDetails(false)}>Hide Details</button>
+          <button className="details-btn" onClick={() => setShowDetails(false)}>Hide Details</button>
         </div>
       ) : (
-        <button onClick={() => setShowDetails(true)}>Show Details</button>
+        <button className="details-btn" onClick={() => setShowDetails(true)}>Show Details</button>
       )} 
     </li>
   );
