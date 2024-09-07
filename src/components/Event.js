@@ -15,10 +15,10 @@ const Event = ({ event }) => {
       {showDetails ? (
         <div>
           <p className="details">{event.description}</p>
-          <button className="details-btn" onClick={() => setShowDetails(false)}>Hide Details</button>
+          <button className="hide-details-btn" onClick={() => setShowDetails(false)}>Hide Details</button>
         </div>
       ) : (
-        <button className="details-btn" onClick={() => setShowDetails(true)}>Show Details</button>
+        <button className="show-details-btn" onClick={() => setShowDetails(true)}>Show Details</button>
       )} 
     </li>
   );

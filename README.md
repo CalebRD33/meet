@@ -32,7 +32,7 @@ So that I can see the the details of the event.
 ### Scenario 1: An event element is collapsed by default
 
 - Given: The user has found an event they would like to see details about
-- When: The user is searching for events
+- When: the main page is open
 - Then: The event element is collapsed by default
 
 ### Scenario 2:  User can expand an event to see details
@@ -55,13 +55,13 @@ So that I can view that specific number of events on the page.
 ### Scenario 1: When user hasn’t specified a number, 32 events are shown by default
 
 - Given: The user hasn't specified the number of events
-- When: The user is searching
+- When: the app is opened
 - Then: 32 events are shown by default
 
 ### Scenario 2: User can change the number of events displayed.
 
 - Given: The user has specified the number of events (ex. "10')
-- When: The user is searching
+- When: the app is opened
 - Then: That same number of events should be shown (ex. "10")
 
 ## Feature 4: Use the App When Offline

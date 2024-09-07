@@ -1,7 +1,7 @@
 import NumberOfEvents from "../components/NumberOfEvents";
-import { render } from "@testing-library/react";
+import { render, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { getEvents } from "../api";
+import App from "../App";
 
 describe('<NumberOfEvents /> component', () => {
     let EventNumberComponent;
@@ -29,12 +29,18 @@ describe('<NumberOfEvents /> component', () => {
 
 describe('<NumberOfEvents /> integration' , () => {
     test('render number of events matching user input', async () => {
-        const NumberOfEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}} />);
-        const numberOfEvents = NumberOfEventsComponent.queryByRole('textbox');
         const user = userEvent.setup();
-        await user.type(numberOfEvents, '{backspace}{backspace}10');
-        const allEvents = await getEvents();
-        NumberOfEventsComponent.rerender(<NumberOfEvents setCurrentNOE={allEvents} />)
-        expect(numberOfEvents).toHaveValue('10');
+        const AppComponent = render(<App />);
+        const AppDOM = AppComponent.container.firstChild;
+    
+        const numberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+        const numberOfEventsInput = within(numberOfEventsDOM).queryByRole('textbox');
+        await user.type(numberOfEventsInput, '{backspace}{backspace}10');
+        
+        const EventListDOM = AppDOM.querySelector('#event-list');
+        await waitFor(() => {
+            const EventListItems = within(EventListDOM).queryAllByRole('listitem');
+            expect(EventListItems.length).toBe(10);
+          });
     });
 });
