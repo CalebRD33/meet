@@ -3,9 +3,7 @@
 import { useState, useEffect } from 'react';
 import {
     PieChart,
-    Pie, 
-    Sector, 
-    Cell, 
+    Pie,  
     ResponsiveContainer
 } from 'recharts';
 
