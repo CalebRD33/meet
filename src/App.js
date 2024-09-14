@@ -41,9 +41,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="lobster-regular">
       <h1>Meet App</h1>
-      <p>Choose a city of interest</p>
-      <br/>
+      </div>
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}

@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import {
     PieChart,
-    Pie,  
+    Pie,
+    Cell,
     ResponsiveContainer
 } from 'recharts';
 
@@ -36,7 +37,7 @@ const EventGenresChart = ({ events }) => {
         <text
           x={x}
           y={y}
-          fill="#8884d8"
+          fill={colors[index]}
           textAnchor={x > cx ? 'start' : 'end'}
           dominantBaseline="central"
         >
@@ -45,8 +46,10 @@ const EventGenresChart = ({ events }) => {
       ) : null;
     };
 
+    const colors = ['#1f77b4', '#6baed6', '#aec7e8', '#9467bd', '#c5b0d5'];
+
     return (
-        <ResponsiveContainer width="99%" height={400}>
+        <ResponsiveContainer width="99%" height={350}>
           <PieChart>
             <Pie
               data={data}
@@ -55,7 +58,11 @@ const EventGenresChart = ({ events }) => {
               labelLine={false}
               label={renderCustomizedLabel}
               outerRadius={130}           
-            />
+            >
+              {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={colors[index]} />
+            ))}
+            </Pie>
           </PieChart>
         </ResponsiveContainer>
       );

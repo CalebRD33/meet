@@ -14,6 +14,7 @@ const Event = ({ event }) => {
       <p>{new Date(event.start.dateTime).toUTCString()}</p>
       {showDetails ? (
         <div>
+          <h4>About event:</h4>
           <p className="details">{event.description}</p>
           <button className="hide-details-btn" onClick={() => setShowDetails(false)}>Hide Details</button>
         </div>
